@@ -3,77 +3,155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Roamyio - Explore. Travel. Live.</title>
+  <title>Roamyio - Live local everywhere</title>
   <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f6fa;
+      background: #f9f9ff;
       color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
     header {
-      background: linear-gradient(135deg, #4b2f7d, #6a4ea2);
+      background-color: #4b2f7d;
       color: white;
-      width: 100%;
+      padding: 2rem 1rem;
       text-align: center;
-      padding: 3rem 1rem 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     header img {
-      height: 100px;
+      height: 80px;
       margin-bottom: 1rem;
     }
     h1 {
+      margin: 0;
       font-size: 2.5rem;
-      margin: 0.5rem 0;
+      letter-spacing: 1px;
     }
-    p {
-      max-width: 700px;
-      margin: 0 auto;
+    .subtitle {
       font-size: 1.2rem;
-      color: #eee;
+      margin-top: 0.5rem;
+    }
+    nav {
+      background: #322154;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    section h2 {
+      color: #4b2f7d;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
     }
     .cta {
       margin-top: 2rem;
+      text-align: center;
     }
     .cta a {
       text-decoration: none;
-      background-color: #ff914d;
+      background-color: #6a4ea2;
       color: white;
-      padding: 0.9rem 2rem;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: background 0.3s ease;
-    }
-    .cta a:hover {
-      background-color: #ff7233;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     footer {
-      margin-top: 4rem;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #888;
       text-align: center;
+      padding: 2rem 1rem;
+      background: #f0f0f0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    @media screen and (max-width: 600px) {
+      nav {
+        flex-wrap: wrap;
+      }
+      nav a {
+        margin: 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
     <img src="logo.png" alt="Roamyio Logo" />
     <h1>Roamyio</h1>
-    <p>Your gateway to smart cab bookings, fine dining, hotel stays & seamless travel experiences across India.</p>
-    <div class="cta">
-      <a href="mailto:info@roamyio.com">Contact Us</a>
-    </div>
+    <p class="subtitle">Live local everywhere.</p>
   </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#investors">Investors</a>
+    <a href="#newsletter">Newsletter</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Roamyio</h2>
+    <p>Roamyio is an early-stage initiative under Valiant Siana Innovations Pvt. Ltd. Our mission is to bring meaningful digital convenience to real people in real places—without compromise.</p>
+  </section>
+
+  <section id="investors">
+    <h2>For Investors</h2>
+    <p>We’re exploring long-term partnerships with value-aligned investors. Interested in early discussions? Reach out at <strong>founders@roamyio.com</strong>.</p>
+  </section>
+
+  <section id="newsletter">
+    <h2>Join Our Mailing List</h2>
+    <p>Be the first to hear about our journey, updates, and milestones.</p>
+    <div class="cta">
+      <a href="mailto:info@roamyio.com">Subscribe via Email</a>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h2>What People Say</h2>
+    <p>“The idea is truly unique – can’t wait to see where it goes!”</p>
+    <p>“Fresh, ambitious, and needed. Roamyio has my attention.”</p>
+  </section>
+
+  <section id="blog">
+    <h2>Latest from Our Blog</h2>
+    <p>🔸 Designing for Local: Why Context Matters More Than Ever<br>
+       🔸 Digital Simplicity in a Complex World</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have a question or opportunity? We're all ears.</p>
+    <div class="cta">
+      <a href="mailto:info@roamyio.com">info@roamyio.com</a>
+    </div>
+  </section>
 
   <footer>
     &copy; 2025 Roamyio — A Valiant Siana Innovations Private Limited product. All rights reserved.
   </footer>
+
 </body>
 </html>
