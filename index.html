@@ -2,85 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Roamyio - Live local everywhere</title>
   <style>
-    * {
-      box-sizing: border-box;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: #1a1a1a;
       scroll-behavior: smooth;
     }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9ff;
-      color: #333;
-    }
+
     header {
-      background-color: #4b2f7d;
-      color: white;
-      padding: 2rem 1rem;
+      background-color: #f9f4e8; /* Pantone 7499 C */
+      padding: 40px 20px 20px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .header-container {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 20px;
+      justify-content: flex-start;
       flex-wrap: wrap;
-    }
-    header img {
-      height: 90px;
-    }
-    .brand {
+      gap: 20px;
       text-align: left;
+      padding-left: 2%;
     }
-    .brand h1 {
+
+    header img {
+      height: 110px;
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    .brand-text h1 {
       margin: 0;
       font-size: 2.5rem;
-      letter-spacing: 1px;
+      color: #4b2f7d;
       transition: transform 0.3s ease, color 0.3s ease;
+      line-height: 1.4;
     }
-    .brand h1:hover {
-      transform: scale(1.05);
-      color: #fcd34d;
+
+    .brand-text h1 span {
+      color: #d6a849;
     }
-    .subtitle {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
+
+    .brand-text p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      color: #4b2f7d;
+      font-weight: 400;
     }
+
     nav {
-      background: #322154;
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
-      padding: 1rem 0;
+      background-color: #4b2f7d;
+      padding: 10px 0;
       position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 1000;
     }
+
     nav a {
-      color: white;
+      color: #ffffff;
       text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s, border-bottom 0.3s;
-      padding-bottom: 5px;
+      margin: 0 15px;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s, color 0.3s;
     }
+
     nav a:hover {
-      color: #fcd34d;
-      border-bottom: 2px solid #fcd34d;
+      background-color: #fcd34d;
+      color: #4b2f7d;
     }
+
     section {
-      padding: 3rem 1.5rem;
+      padding: 60px 20px;
       max-width: 900px;
       margin: auto;
+      animation: fadeIn 1s ease-in-out;
+      background-color: #ffffff;
     }
-    section h2 {
+
+    h2 {
       color: #4b2f7d;
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
     }
+
     .cta {
-      margin-top: 2rem;
       text-align: center;
+      margin-top: 20px;
     }
+
     .cta a {
       text-decoration: none;
       background-color: #6a4ea2;
@@ -88,38 +106,68 @@
       padding: 1rem 2rem;
       border-radius: 8px;
       font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s;
     }
+
+    .cta a:hover {
+      background-color: #4b2f7d;
+    }
+
     footer {
+      background-color: #4b2f7d;
+      padding: 20px;
       text-align: center;
-      padding: 2rem 1rem;
-      background: #f0f0f0;
       font-size: 0.9rem;
-      color: #555;
+      color: #ffffff;
+      animation: fadeInUp 1s ease;
     }
-    @media screen and (max-width: 600px) {
-      nav {
-        flex-wrap: wrap;
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
       }
-      nav a {
-        margin: 0.5rem;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
-      header {
-        flex-direction: column;
-        text-align: center;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
-      .brand {
-        text-align: center;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .highlight {
+      color: #d6a849;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="master_roamyio.png" alt="Roamyio Logo" />
-    <div class="brand">
-      <h1>Roamyio</h1>
-      <p class="subtitle">Live local everywhere.</p>
+    <div class="header-container">
+      <img src="master_roamyio.png" alt="Roamyio Logo" />
+      <div class="brand-text">
+        <h1><span>Roamyio</span> – Live local everywhere</h1>
+        <p>Personalized lifestyle and mobility companion across cities.</p>
+      </div>
     </div>
   </header>
 
@@ -173,6 +221,5 @@
   <footer>
     &copy; 2025 Roamyio — A Valiant Siana Innovations Private Limited product. All rights reserved.
   </footer>
-
 </body>
 </html>
