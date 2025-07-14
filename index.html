@@ -9,7 +9,6 @@
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
-
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
@@ -17,50 +16,44 @@
       background: #f9f9ff;
       color: #333;
     }
-
     header {
-      background-color: #4b2f7d;
+      background-color: #4b2f7d; /* Header color */
       color: white;
       padding: 2rem 1rem;
     }
-
     .branding {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .branding:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
-    }
-
-    .branding img {
+    .logo {
       height: 120px;
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
     }
-
-    .branding .text {
+    .logo:hover {
+      transform: scale(1.08);
+    }
+    .text {
       text-align: left;
     }
-
-    .branding .text h1 {
+    .brand-title {
       margin: 0;
       font-size: 2.5rem;
       letter-spacing: 1px;
       color: white;
-      transition: transform 0.3s ease;
+      transition: color 0.4s ease, text-shadow 0.4s ease;
     }
-
-    .branding .text p {
-      margin-top: 0.5rem;
+    .brand-title:hover {
+      color: #fffbe0;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    }
+    .subtitle {
       font-size: 1.2rem;
-      color: white;
+      margin-top: 0.5rem;
+      color: #f0eaff;
     }
-
     nav {
       background: #322154;
       display: flex;
@@ -71,38 +64,32 @@
       top: 0;
       z-index: 999;
     }
-
     nav a {
       color: white;
       text-decoration: none;
       font-weight: 500;
-      padding: 0.5rem 1rem;
+      padding: 8px 12px;
       border-radius: 6px;
       transition: background-color 0.3s, color 0.3s;
     }
-
     nav a:hover {
-      background-color: #6a4ea2;
-      color: #fffbe0;
+      background-color: #5a3e89;
+      color: #ffe066;
     }
-
     section {
       padding: 3rem 1.5rem;
       max-width: 900px;
       margin: auto;
     }
-
     section h2 {
       color: #4b2f7d;
       font-size: 1.8rem;
       margin-bottom: 1rem;
     }
-
     .cta {
       margin-top: 2rem;
       text-align: center;
     }
-
     .cta a {
       text-decoration: none;
       background-color: #6a4ea2;
@@ -112,7 +99,6 @@
       font-weight: bold;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -120,22 +106,18 @@
       font-size: 0.9rem;
       color: #555;
     }
-
     @media screen and (max-width: 600px) {
       nav {
         flex-wrap: wrap;
       }
-
       nav a {
         margin: 0.5rem;
       }
-
       .branding {
         flex-direction: column;
         text-align: center;
       }
-
-      .branding .text {
+      .text {
         text-align: center;
       }
     }
@@ -145,9 +127,9 @@
 
   <header>
     <div class="branding">
-      <img src="master_roamyio_transparent.png" alt="Roamyio Logo" />
+      <img src="master_roamyio_transparent.png" alt="Roamyio Logo" class="logo" />
       <div class="text">
-        <h1>ROAMYIO</h1>
+        <h1 class="brand-title">ROAMYIO</h1>
         <p class="subtitle">Live local everywhere.</p>
       </div>
     </div>
