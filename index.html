@@ -20,16 +20,27 @@
       background-color: #4b2f7d;
       color: white;
       padding: 2rem 1rem;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
     header img {
-      height: 80px;
-      margin-bottom: 1rem;
+      height: 90px;
     }
-    h1 {
+    .brand {
+      text-align: left;
+    }
+    .brand h1 {
       margin: 0;
       font-size: 2.5rem;
       letter-spacing: 1px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .brand h1:hover {
+      transform: scale(1.05);
+      color: #fcd34d;
     }
     .subtitle {
       font-size: 1.2rem;
@@ -49,10 +60,12 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
-      transition: 0.3s;
+      transition: color 0.3s, border-bottom 0.3s;
+      padding-bottom: 5px;
     }
     nav a:hover {
-      text-decoration: underline;
+      color: #fcd34d;
+      border-bottom: 2px solid #fcd34d;
     }
     section {
       padding: 3rem 1.5rem;
@@ -91,15 +104,23 @@
       nav a {
         margin: 0.5rem;
       }
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .brand {
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
     <img src="master_roamyio.png" alt="Roamyio Logo" />
-    <h1>Roamyio</h1>
-    <p class="subtitle">Live local everywhere.</p>
+    <div class="brand">
+      <h1>Roamyio</h1>
+      <p class="subtitle">Live local everywhere.</p>
+    </div>
   </header>
 
   <nav>
