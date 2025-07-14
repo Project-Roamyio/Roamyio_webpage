@@ -9,6 +9,7 @@
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
@@ -18,57 +19,57 @@
     }
 
     header {
-      background-color: #4b2f7d; /* original color kept */
+      background-color: #4b2f7d;
       color: white;
-      padding: 2rem 1.5rem;
+      padding: 2rem 1rem;
     }
 
-    .branding {
+    .header-inner {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
       flex-wrap: wrap;
+      gap: 20px;
     }
 
-    .branding img {
+    .logo-container img {
       height: 110px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
-    .branding img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    .logo-container img:hover {
+      transform: scale(1.08);
     }
 
-    .text {
+    .brand {
       text-align: left;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
-    .text h1 {
+    .brand h1 {
       margin: 0;
       font-size: 2.5rem;
-      letter-spacing: 1px;
       color: white;
       text-transform: uppercase;
-      transition: transform 0.3s ease, text-shadow 0.3s ease;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
-    .text h1:hover {
+    .brand h1:hover {
       transform: scale(1.05);
-      text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+      color: #fcd34d;
     }
 
     .subtitle {
       font-size: 1.2rem;
-      margin-top: 0.4rem;
-      color: white;
+      margin-top: 0.3rem;
+      color: #f3f3f3;
     }
 
     nav {
       background: #322154;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 1.5rem;
       padding: 1rem 0;
       position: sticky;
@@ -80,13 +81,11 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
-      padding: 6px 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
+      transition: color 0.3s;
     }
 
     nav a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+      color: #fcd34d;
     }
 
     section {
@@ -114,11 +113,6 @@
       border-radius: 8px;
       font-weight: bold;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .cta a:hover {
-      transform: scale(1.05);
     }
 
     footer {
@@ -130,17 +124,11 @@
     }
 
     @media screen and (max-width: 600px) {
-      nav {
-        flex-wrap: wrap;
-      }
-      nav a {
-        margin: 0.5rem;
-      }
-      .branding {
+      .header-inner {
         flex-direction: column;
         text-align: center;
       }
-      .text {
+      .brand {
         text-align: center;
       }
     }
@@ -149,10 +137,12 @@
 <body>
 
   <header>
-    <div class="branding">
-      <img src="master_roamyio_transparent.png" alt="Roamyio Logo" />
-      <div class="text">
-        <h1>ROAMYIO</h1>
+    <div class="header-inner">
+      <div class="logo-container">
+        <img src="master_roamyio_transparent.png" alt="Roamyio Logo" />
+      </div>
+      <div class="brand">
+        <h1>Roamyio</h1>
         <p class="subtitle">Live local everywhere.</p>
       </div>
     </div>
