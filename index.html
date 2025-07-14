@@ -20,13 +20,18 @@
       background-color: #4b2f7d;
       color: white;
       padding: 2rem 1rem;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
     header img {
       height: 120px;
-      margin-bottom: 1rem;
     }
-    h1 {
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-text h1 {
       margin: 0;
       font-size: 2.5rem;
       letter-spacing: 1px;
@@ -91,6 +96,13 @@
       nav a {
         margin: 0.5rem;
       }
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .brand-text {
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -98,8 +110,10 @@
 
   <header>
     <img src="master_roamyio_transparent.png" alt="Roamyio Logo" />
-    <h1>Roamyio</h1>
-    <p class="subtitle">Live local everywhere.</p>
+    <div class="brand-text">
+      <h1>Roamyio</h1>
+      <p class="subtitle">Live local everywhere.</p>
+    </div>
   </header>
 
   <nav>
