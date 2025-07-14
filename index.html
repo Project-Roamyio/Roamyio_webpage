@@ -17,17 +17,17 @@
       color: #333;
     }
     header {
-      background-color: #742384; /* Pantone 2597 C */
+      background-color: #4b2f7d;
       color: white;
-      padding: 2rem 2rem;
+      padding: 2rem 1rem;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
     }
     header img {
-      height: 110px;
+      height: 90px;
     }
     .brand {
       text-align: left;
@@ -36,13 +36,15 @@
       margin: 0;
       font-size: 2.5rem;
       letter-spacing: 1px;
-      color: #ffffff;
-      text-transform: uppercase;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .brand h1:hover {
+      transform: scale(1.05);
+      color: #fcd34d;
     }
     .subtitle {
       font-size: 1.2rem;
       margin-top: 0.5rem;
-      color: #f7e6ff;
     }
     nav {
       background: #322154;
@@ -58,13 +60,12 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
-      padding: 6px 12px;
-      border-radius: 6px;
-      transition: background-color 0.3s, color 0.3s;
+      transition: color 0.3s, border-bottom 0.3s;
+      padding-bottom: 5px;
     }
     nav a:hover {
-      background-color: #fcd34d;
-      color: #322154;
+      color: #fcd34d;
+      border-bottom: 2px solid #fcd34d;
     }
     section {
       padding: 3rem 1.5rem;
@@ -115,9 +116,9 @@
 </head>
 <body>
   <header>
-    <img src="master_roamyio_transparent.png" alt="Roamyio Logo" />
+    <img src="master_roamyio.png" alt="Roamyio Logo" />
     <div class="brand">
-      <h1>ROAMYIO</h1>
+      <h1>Roamyio</h1>
       <p class="subtitle">Live local everywhere.</p>
     </div>
   </header>
@@ -172,5 +173,6 @@
   <footer>
     &copy; 2025 Roamyio — A Valiant Siana Innovations Private Limited product. All rights reserved.
   </footer>
+
 </body>
 </html>
