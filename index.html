@@ -2,329 +2,202 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Roamyio - Live local everywhere</title>
-  <meta name="description" content="Roamyio — Live local everywhere. Building a smarter way to connect people with their cities. Coming soon." />
-  <meta property="og:title" content="Roamyio – Live local everywhere" />
-  <meta property="og:description" content="Building a smarter way to connect people with their cities. Coming soon." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="master_roamyio_transparent.png" />
-  <meta name="theme-color" content="#4b2f7d" />
-  <link rel="icon" href="master_roamyio_transparent.png" />
   <style>
-    :root {
-      --bg: #f9f9ff;         /* keep existing */
-      --text: #333;          /* keep existing */
-      --brand-700: #4b2f7d;  /* header */
-      --brand-800: #322154;  /* nav */
-      --brand-500: #6a4ea2;  /* buttons */
-      --accent: #fcd34d;     /* hover accent */
-      --muted: #f0f0f0;      /* footer bg */
-      --card: #ffffff;
-      --shadow: 0 10px 30px rgba(0,0,0,.08);
-      --radius: 14px;
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.6;
+      padding: 0;
+      background: #f9f9ff;
+      color: #333;
     }
 
-    /* Top Announcement bar (optional) */
-    .announce {
-      display: none; /* set to flex if needed later */
+    header {
+      background-color: #4b2f7d;
+      color: white;
+      padding: 2rem 1rem;
+    }
+
+    .header-inner {
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: .5rem;
-      padding: .5rem 1rem;
-      background: #efeaff;
-      color: #3b2a63;
-      font-size: .95rem;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
-    /* Header / Hero */
-    header.hero {
-      position: relative;
-      overflow: clip;
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(250,238,166,.15), transparent 60%),
-                  radial-gradient(900px 500px at 100% 0%, rgba(255,255,255,.08), transparent 50%),
-                  linear-gradient(180deg, var(--brand-700), #5a3c93 70%);
-      color: #fff;
-      padding: 6rem 1.25rem 5rem;
-      isolation: isolate;
+    .logo-container img {
+      height: 110px;
+      transition: transform 0.3s ease;
     }
-    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr .9fr; gap: 2.5rem; align-items: center; }
-    @media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; padding-top: .5rem; } }
 
-    .brandline { display:flex; align-items:center; gap:1rem; margin-bottom:1.25rem; }
-    .brandline img { height: 90px; width: auto; filter: drop-shadow(0 10px 18px rgba(0,0,0,.25)); transition: transform .3s ease; }
-    .brandline img:hover { transform: scale(1.04); }
-
-    h1.title { margin: 0; font-size: clamp(2.2rem, 5vw, 3.5rem); letter-spacing: .2px; text-transform: uppercase; }
-    p.subtitle { margin: .5rem 0 1.5rem; color: #f3f3f3; font-size: clamp(1.05rem, 1.6vw, 1.25rem); }
-
-    .cta-row { display:flex; align-items:center; gap: .75rem; flex-wrap: wrap; }
-    .btn {
-      display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
-      background: var(--brand-500);
-      color: #fff; text-decoration:none; font-weight: 700;
-      padding: .85rem 1.2rem; border-radius: 10px; box-shadow: var(--shadow);
-      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    .logo-container img:hover {
+      transform: scale(1.08);
     }
-    .btn:hover { transform: translateY(-2px); background:#7757b1; box-shadow: 0 14px 30px rgba(0,0,0,.12); }
-    .btn.secondary { background: transparent; border: 1.5px solid rgba(255,255,255,.65); color:#fff; font-weight:600; }
-    .btn.secondary:hover { background: rgba(255,255,255,.06); }
 
-    /* Decorative blobs */
-    .blob { position:absolute; inset:auto; opacity:.35; filter: blur(28px); mix-blend-mode: screen; pointer-events:none; }
-    .blob.one { width: 420px; height:420px; background: radial-gradient(circle at 30% 30%, #b58cff, transparent 55%); top:-60px; left:-60px; }
-    .blob.two { width: 520px; height:520px; background: radial-gradient(circle at 70% 40%, #ffd86b, transparent 55%); right:-120px; top:-40px; opacity:.20; }
-
-    /* Sticky Nav */
-    nav.sticky {
-      position: sticky; top: 0; z-index: 50;
-      background: var(--brand-800);
-      color:#fff;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 8px 18px rgba(0,0,0,.08);
-      transition: padding .2s ease, background .2s ease, box-shadow .2s ease;
-      padding: .9rem 1rem;
+    .brand {
+      text-align: left;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
-    nav.sticky.shrink { padding: .55rem 1rem; background: #2b194a; box-shadow: 0 10px 22px rgba(0,0,0,.12); }
-    .nav-inner { max-width: 1100px; margin: 0 auto; display:flex; align-items:center; justify-content:center; gap:1.25rem; flex-wrap: wrap; }
-    nav a { color:#fff; text-decoration:none; font-weight:600; opacity:.95; }
-    nav a:hover { color: var(--accent); }
 
-    /* Sections */
-    section { padding: 4rem 1.25rem; }
-    .container { max-width: 1000px; margin: 0 auto; }
-    h2.section-title { font-size: clamp(1.6rem, 3.2vw, 2rem); color: var(--brand-700); margin: 0 0 1rem; }
-    .lead { color: #555; font-size: 1.05rem; }
+    .brand h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: white;
+      text-transform: uppercase;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
 
-    /* Cards */
-    .grid { display:grid; gap: 1.25rem; }
-    @media (min-width: 720px){ .grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
-    @media (min-width: 720px){ .grid.cols-2 { grid-template-columns: repeat(2, 1fr); } }
-    .card { background: var(--card); border: 1px solid rgba(0,0,0,.05); border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(0,0,0,.12); }
+    .brand h1:hover {
+      transform: scale(1.05);
+      color: #fcd34d;
+    }
 
-    /* Newsletter */
-    .newsletter { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1rem; }
-    .newsletter input[type=email]{ flex:1 1 260px; padding: .85rem 1rem; border:1px solid #ddd; border-radius:10px; font-size:1rem; }
-    .newsletter button { cursor:pointer; }
+    .subtitle {
+      font-size: 1.2rem;
+      margin-top: 0.3rem;
+      color: #f3f3f3;
+    }
 
-    /* Footer */
-    footer { background: var(--muted); padding: 2.5rem 1.25rem; color:#555; }
-    .footer-inner { max-width: 1000px; margin: 0 auto; display:grid; gap:1rem; align-items:center; justify-content:space-between; }
-    .copyright { font-size:.95rem; }
+    nav {
+      background: #322154;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
 
-    /* Reveal on scroll */
-    [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
-    [data-reveal].show { opacity: 1; transform: translateY(0); }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-    /* Accessibility: reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; }
-      .blob { display:none; }
-      [data-reveal] { opacity: 1 !important; transform: none !important; }
+    nav a:hover {
+      color: #fcd34d;
+    }
+
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section h2 {
+      color: #4b2f7d;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .cta a {
+      text-decoration: none;
+      background-color: #6a4ea2;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #f0f0f0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    @media screen and (max-width: 600px) {
+      .header-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .brand {
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <header class="hero" id="top">
-    <div class="blob one" aria-hidden="true"></div>
-    <div class="blob two" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <div>
-        <div class="brandline">
-          <img src="master_roamyio_transparent.png" alt="Roamyio Logo" />
-          <div>
-            <h1 class="title">Roamyio</h1>
-            <p class="subtitle">Live local everywhere.</p>
-          </div>
-        </div>
-        <p class="lead" data-reveal>
-          We’re building quietly. A brand-first, privacy-respectful platform that connects people with their cities—without giving the playbook away.
-        </p>
-        <div class="cta-row" data-reveal>
-          <a class="btn" href="#newsletter">Join the waitlist</a>
-          <a class="btn secondary" href="#about">Learn more</a>
-        </div>
+  <header>
+    <div class="header-inner">
+      <div class="logo-container">
+        <img src="master_roamyio_transparent.png" alt="Roamyio Logo" />
       </div>
-      <div aria-hidden="true" data-reveal>
-        <!-- Phone mockup card (abstract/stealth) -->
-        <div class="card" style="border-radius:22px; padding:0; overflow:hidden; aspect-ratio: 10/19; max-width: 420px; margin: 0 auto; background: linear-gradient(160deg, rgba(255,255,255,.25), rgba(255,255,255,.08)); backdrop-filter: blur(6px);">
-          <div style="height: 56px; background: rgba(0,0,0,.14);"></div>
-          <div style="padding: 1rem 1rem 1.2rem; display:grid; gap:.75rem;">
-            <div class="card" style="background:linear-gradient(135deg, #6a4ea2 0%, #4b2f7d 100%); color:#fff;">
-              <strong>Stealth Mode</strong>
-              <div style="opacity:.9; font-size:.95rem">Early access • Private beta</div>
-            </div>
-            <div class="grid cols-2">
-              <div class="card" style="min-height:84px;"><strong>Privacy First</strong><div style="opacity:.8">No noise. No hype.</div></div>
-              <div class="card" style="min-height:84px;"><strong>Built in India</strong><div style="opacity:.8">Global ambition.</div></div>
-            </div>
-            <div class="card" style="min-height:84px;"><strong>Local. Simple. Useful.</strong><div style="opacity:.8">That’s it.</div></div>
-          </div>
-        </div>
+      <div class="brand">
+        <h1>Roamyio</h1>
+        <p class="subtitle">Live local everywhere.</p>
       </div>
     </div>
   </header>
 
-  <!-- STICKY NAV -->
-  <nav class="sticky" id="site-nav">
-    <div class="nav-inner">
-      <a href="#about">About</a>
-      <a href="#values">Values</a>
-      <a href="#newsletter">Waitlist</a>
-      <a href="#testimonials">Words</a>
-      <a href="#investors">Investors</a>
-      <a href="#contact">Contact</a>
-    </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#investors">Investors</a>
+    <a href="#newsletter">Newsletter</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <!-- ABOUT -->
   <section id="about">
-    <div class="container">
-      <h2 class="section-title" data-reveal>About Roamyio</h2>
-      <p class="lead" data-reveal>
-        Roamyio is an early-stage initiative under Valiant Siana Innovations Pvt. Ltd. Our mission is to deliver meaningful digital convenience to real people in real places—without compromise.
-      </p>
-    </div>
+    <h2>About Roamyio</h2>
+    <p>Roamyio is an early-stage initiative under Valiant Siana Innovations Pvt. Ltd. Our mission is to bring meaningful digital convenience to real people in real places—without compromise.</p>
   </section>
 
-  <!-- VALUES / PILLARS (stealth-safe) -->
-  <section id="values">
-    <div class="container">
-      <h2 class="section-title" data-reveal>What guides us</h2>
-      <div class="grid cols-3" style="margin-top:1rem;" >
-        <div class="card" data-reveal>
-          <h3 style="margin:.25rem 0 .5rem; color:var(--brand-700)">Simplicity</h3>
-          <p>Design that stays out of your way. Clear choices, less friction, more life.</p>
-        </div>
-        <div class="card" data-reveal>
-          <h3 style="margin:.25rem 0 .5rem; color:var(--brand-700)">Trust</h3>
-          <p>Privacy-respectful decisions and transparent communication—no secrets that matter, only the right ones.</p>
-        </div>
-        <div class="card" data-reveal>
-          <h3 style="margin:.25rem 0 .5rem; color:var(--brand-700)">Local First</h3>
-          <p>Built around neighborhoods, not abstractions. Start where people live.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEWSLETTER / WAITLIST -->
-  <section id="newsletter">
-    <div class="container">
-      <h2 class="section-title" data-reveal>Join the waitlist</h2>
-      <p class="lead" data-reveal>Get quiet updates. No spam. No leaks.</p>
-      <form class="newsletter" action="https://formspree.io/f/your-id" method="POST" data-reveal>
-        <!-- You can replace action with your own provider or keep a mailto fallback below -->
-        <input type="email" name="email" placeholder="you@example.com" aria-label="Email address" required />
-        <button class="btn" type="submit">Notify me</button>
-      </form>
-      <div style="margin-top:.75rem;" data-reveal>
-        <small>Prefer email? <a href="mailto:info@roamyio.com" style="color:var(--brand-700); font-weight:600;">info@roamyio.com</a></small>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS / WORDS -->
-  <section id="testimonials">
-    <div class="container">
-      <h2 class="section-title" data-reveal>Early words</h2>
-      <div class="grid cols-2" style="margin-top:1rem;">
-        <div class="card" data-reveal>
-          <p style="font-size:1.05rem">“Ambitious, focused, and refreshingly grounded.”</p>
-          <div style="opacity:.7"><strong>Product Lead</strong> • Bengaluru</div>
-        </div>
-        <div class="card" data-reveal>
-          <p style="font-size:1.05rem">“Smart take on everyday local life. Subtle, not noisy.”</p>
-          <div style="opacity:.7"><strong>Design Mentor</strong> • Mumbai</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- INVESTORS -->
   <section id="investors">
-    <div class="container">
-      <h2 class="section-title" data-reveal>For Investors</h2>
-      <p class="lead" data-reveal>
-        We’re inviting long-term, value-aligned partners for early conversations.
-        Reach out at <strong>info@roamyio.com</strong>.
-      </p>
+    <h2>For Investors</h2>
+    <p>We’re exploring long-term partnerships with value-aligned investors. Interested in early discussions? Reach out at <strong>info@roamyio.com</strong>.</p>
+  </section>
+
+  <section id="newsletter">
+    <h2>Join Our Mailing List</h2>
+    <p>Be the first to hear about our journey, updates, and milestones.</p>
+    <div class="cta">
+      <a href="mailto:info@roamyio.com">Subscribe via Email</a>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <section id="testimonials">
+    <h2>What People Say</h2>
+    <p>“The idea is truly unique – can’t wait to see where it goes!”</p>
+    <p>“Fresh, ambitious, and needed. Roamyio has my attention.”</p>
+  </section>
+
+  <section id="blog">
+    <h2>Latest from Our Blog</h2>
+    <p>🔸 Designing for Local: Why Context Matters More Than Ever<br>
+       🔸 Digital Simplicity in a Complex World</p>
+  </section>
+
   <section id="contact">
-    <div class="container">
-      <h2 class="section-title" data-reveal>Contact</h2>
-      <div class="card" data-reveal>
-        <p>Have a question or opportunity? We're all ears.</p>
-        <p class="lead"><a class="btn" href="mailto:info@roamyio.com">info@roamyio.com</a></p>
-      </div>
+    <h2>Contact Us</h2>
+    <p>Have a question or opportunity? We're all ears.</p>
+    <div class="cta">
+      <a href="mailto:info@roamyio.com">info@roamyio.com</a>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <div class="footer-inner container">
-      <div class="copyright">&copy; 2025 Roamyio — A Valiant Siana Innovations Private Limited product. All rights reserved.</div>
-    </div>
+    &copy; 2025 Roamyio — A Valiant Siana Innovations Private Limited product. All rights reserved.
   </footer>
 
-  <script>
-    // Sticky nav shrink
-    const nav = document.getElementById('site-nav');
-    const shrinkOn = 12;
-    const onScroll = () => {
-      if (window.scrollY > shrinkOn) nav.classList.add('shrink'); else nav.classList.remove('shrink');
-      // Parallax blobs
-      const y = window.scrollY * 0.06;
-      document.querySelectorAll('.blob').forEach((b, i) => {
-        b.style.transform = `translateY(${y * (i+1)}px)`;
-      });
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    // Reveal on view
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
-    document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
-
-    // Mailto fallback if Formspree not set
-    const form = document.querySelector('.newsletter');
-    form?.addEventListener('submit', (e) => {
-      const actionUnset = form.action.includes('your-id');
-      if (actionUnset) {
-        e.preventDefault();
-        const email = form.querySelector('input[type=email]')?.value || '';
-        window.location.href = `mailto:info@roamyio.com?subject=Roamyio%20Waitlist&body=Please%20add%20${encodeURIComponent(email)}%20to%20the%20waitlist.`;
-      }
-    });
-  </script>
-
-  <!-- Minimal JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Roamyio",
-    "url": "https://roamyio.com/",
-    "logo": "https://roamyio.com/master_roamyio_transparent.png",
-    "sameAs": []
-  }
-  </script>
 </body>
 </html>
