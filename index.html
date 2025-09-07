@@ -88,6 +88,15 @@
       color: #fcd34d;
     }
 
+    /* Button inside nav */
+    nav a.try-app-btn {
+      background: #fcd34d;
+      color: #4b2f7d;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
     section {
       padding: 3rem 1.5rem;
       max-width: 900px;
@@ -133,7 +142,7 @@
       }
     }
 
-    /* 🔽 Added styles for responsive iframe */
+    /* 🔽 Responsive iframe */
     .app-container {
       position: relative;
       width: 100%;
@@ -148,10 +157,10 @@
       border: none;
     }
     @media (max-width: 1024px) {
-      .app-container { height: 600px; } /* tablet */
+      .app-container { height: 600px; }
     }
     @media (max-width: 600px) {
-      .app-container { height: 500px; } /* mobile */
+      .app-container { height: 500px; }
     }
   </style>
 </head>
@@ -170,6 +179,7 @@
   </header>
 
   <nav>
+    <a href="#app" class="try-app-btn">🚖 Try App</a>
     <a href="#about">About</a>
     <a href="#investors">Investors</a>
     <a href="#newsletter">Newsletter</a>
@@ -177,6 +187,20 @@
     <a href="#blog">Blog</a>
     <a href="#contact">Contact</a>
   </nav>
+
+  <!-- 🔽 Web App section immediately visible -->
+  <section id="app">
+    <div class="app-container">
+      <iframe src="app/index.html"></iframe>
+    </div>
+    <p style="margin-top:15px; text-align:center;">
+      <a href="app/index.html" target="_blank">
+        <button style="padding: 10px 20px; font-size: 1rem; border: none; border-radius: 8px; background: #4b2f7d; color: white; cursor: pointer;">
+          Open Fullscreen App
+        </button>
+      </a>
+    </p>
+  </section>
 
   <section id="about">
     <h2>About Roamyio</h2>
@@ -206,21 +230,6 @@
     <h2>Latest from Our Blog</h2>
     <p>🔸 Designing for Local: Why Context Matters More Than Ever<br>
        🔸 Digital Simplicity in a Complex World</p>
-  </section>
-
-  <!-- 🔽 Web App section just below blog, above contact -->
-  <section id="app">
-    <h2>Try Roamyio Web App</h2>
-    <div class="app-container">
-      <iframe src="app/index.html"></iframe>
-    </div>
-    <p style="margin-top:15px; text-align:center;">
-      <a href="app/index.html" target="_blank">
-        <button style="padding: 10px 20px; font-size: 1rem; border: none; border-radius: 8px; background: #4b2f7d; color: white; cursor: pointer;">
-          Open Fullscreen App
-        </button>
-      </a>
-    </p>
   </section>
 
   <section id="contact">
