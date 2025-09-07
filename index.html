@@ -149,27 +149,29 @@
       }
     }
 
-    /* 🔽 Web App section styles with overlay */
+    /* 🔽 App section with background overlay */
     .app-section {
       position: relative;
       width: 100%;
       min-height: 100vh;
       margin: 0;
       padding: 4rem 0;
+
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
+
       background: url('city-map-bg.png') center/cover no-repeat;
     }
 
-    /* Faint white overlay */
+    /* White overlay for faint background */
     .app-section::before {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255, 255, 255, 0.7); /* adjust 0.6–0.8 for faintness */
+      background: rgba(255, 255, 255, 0.7);
       z-index: 0;
     }
 
@@ -180,10 +182,11 @@
       z-index: 1;
     }
 
+    /* Centered iframe container */
     .app-container {
-      position: relative;
-      width: 90%;
-      max-width: 900px;
+      margin: 0 auto;            /* ✅ centers horizontally */
+      width: 100%;
+      max-width: 900px;          /* ✅ no extra space on right */
       height: 800px;
       border-radius: 12px;
       overflow: hidden;
@@ -191,9 +194,6 @@
     }
 
     .app-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       border: none;
