@@ -115,14 +115,19 @@
       margin-bottom: 1rem;
     }
 
-    /* ✅ Full-width city map background */
+    /* ✅ Full-width background without fixed scroll */
     .app-section {
       width: 100%;
+      min-height: 100vh;
       margin: 0;
       padding: 4rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+
       background: url('city-map-bg.png') center/cover no-repeat;
-      background-attachment: fixed;
     }
 
     .app-section h1 {
@@ -132,8 +137,8 @@
     }
 
     .app-container {
+      width: 90%;
       max-width: 900px;
-      margin: auto;
       height: 600px;
       border-radius: 12px;
       overflow: hidden;
