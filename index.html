@@ -115,45 +115,14 @@
       margin-bottom: 1rem;
     }
 
-    /* ✅ App section with city map background + neural effect */
+    /* ✅ Full-width city map background */
     .app-section {
       width: 100%;
       margin: 0;
-      padding: 4rem 1rem;
+      padding: 4rem 0;
       text-align: center;
       background: url('city-map-bg.png') center/cover no-repeat;
       background-attachment: fixed;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Neural line overlay */
-    .app-section::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: repeating-linear-gradient(
-        60deg,
-        rgba(255, 255, 255, 0.08) 0px,
-        rgba(255, 255, 255, 0.08) 2px,
-        transparent 2px,
-        transparent 40px
-      );
-      animation: neuralFlow 12s linear infinite;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    @keyframes neuralFlow {
-      from { background-position: 0 0; }
-      to { background-position: 200px 200px; }
-    }
-
-    .app-section h1,
-    .app-container,
-    .cta-btn {
-      position: relative;
-      z-index: 1;
     }
 
     .app-section h1 {
@@ -169,8 +138,6 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      position: relative;
-      z-index: 1;
     }
 
     .app-container iframe {
