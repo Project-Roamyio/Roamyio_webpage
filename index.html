@@ -88,13 +88,22 @@
       color: #fcd34d;
     }
 
-    /* Button inside nav */
-    nav a.try-app-btn {
-      background: #fcd34d;
-      color: #4b2f7d;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
+    /* 🔥 Glow effect for Try App */
+    nav a.glow {
+      color: white;
       font-weight: bold;
+      text-decoration: none;
+      position: relative;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #fcd34d, 0 0 10px #fcd34d, 0 0 15px #fcd34d;
+      }
+      to {
+        text-shadow: 0 0 10px #fff7cc, 0 0 20px #fcd34d, 0 0 30px #fcd34d;
+      }
     }
 
     section {
@@ -142,6 +151,20 @@
       }
     }
 
+    /* ✅ App section gradient background animation */
+    .app-section {
+      background: linear-gradient(135deg, #f9f9ff, #f3ecff, #f9f9ff);
+      background-size: 400% 400%;
+      animation: gradientFlow 10s ease infinite;
+      padding: 3rem 1.5rem;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     /* 🔽 Responsive iframe */
     .app-container {
       position: relative;
@@ -179,7 +202,7 @@
   </header>
 
   <nav>
-    <a href="#app" class="try-app-btn">🚖 Try App</a>
+    <a href="#app" class="glow">🚖 Try App</a>
     <a href="#about">About</a>
     <a href="#investors">Investors</a>
     <a href="#newsletter">Newsletter</a>
@@ -188,8 +211,8 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- 🔽 Web App section immediately visible -->
-  <section id="app">
+  <!-- 🔽 Web App section with gradient background -->
+  <section id="app" class="app-section">
     <div class="app-container">
       <iframe src="app/index.html"></iframe>
     </div>
